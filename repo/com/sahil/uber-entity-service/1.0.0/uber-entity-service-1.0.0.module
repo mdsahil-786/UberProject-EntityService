@@ -1,0 +1,130 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.sahil",
+    "module": "uber-entity-service",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.4.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-data-jpa"
+        },
+        {
+          "group": "org.springframework.data",
+          "module": "spring-data-jpa"
+        },
+        {
+          "group": "org.hibernate.orm",
+          "module": "hibernate-core"
+        },
+        {
+          "group": "jakarta.validation",
+          "module": "jakarta.validation-api",
+          "version": {
+            "requires": "3.0.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "uber-entity-service-1.0.0.jar",
+          "url": "uber-entity-service-1.0.0.jar",
+          "size": 31672,
+          "sha512": "85117895fb1e490cfd1ff48fb8da75cde77ff7add29e02c1165f40a66616e61ef98ebf46fee14b2026791e34a53247e9c45d9f44a2bf6c1322a8c6740db89f7b",
+          "sha256": "6aa3b3716f209355b2e5f7261a9bd60dc19441997db5417103de4cc1d7cb78be",
+          "sha1": "195dd0a4aea44e64ea9c84eeff61b667208607e5",
+          "md5": "2892c796d6b0ec7334d6035b5d96d45b"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.flywaydb",
+          "module": "flyway-core"
+        },
+        {
+          "group": "org.flywaydb",
+          "module": "flyway-mysql"
+        },
+        {
+          "group": "org.springframework.boot",
+          "module": "spring-boot-starter-data-jpa"
+        },
+        {
+          "group": "org.springframework.data",
+          "module": "spring-data-jpa"
+        },
+        {
+          "group": "org.hibernate.orm",
+          "module": "hibernate-core"
+        },
+        {
+          "group": "jakarta.validation",
+          "module": "jakarta.validation-api",
+          "version": {
+            "requires": "3.0.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "uber-entity-service-1.0.0.jar",
+          "url": "uber-entity-service-1.0.0.jar",
+          "size": 31672,
+          "sha512": "85117895fb1e490cfd1ff48fb8da75cde77ff7add29e02c1165f40a66616e61ef98ebf46fee14b2026791e34a53247e9c45d9f44a2bf6c1322a8c6740db89f7b",
+          "sha256": "6aa3b3716f209355b2e5f7261a9bd60dc19441997db5417103de4cc1d7cb78be",
+          "sha1": "195dd0a4aea44e64ea9c84eeff61b667208607e5",
+          "md5": "2892c796d6b0ec7334d6035b5d96d45b"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "uber-entity-service-1.0.0-sources.jar",
+          "url": "uber-entity-service-1.0.0-sources.jar",
+          "size": 12353,
+          "sha512": "46bfd30094b26444acc3dcd3b3bbe01ca1c1aeb4e8f4b9340663caa0f61981b30c37e1625893e6b75fb98f0ad35b8c278af369b434175fec3763e62e231719f3",
+          "sha256": "85cf7899c2201edb4e66d12e45c127bc448fd9a0f5850bbb4ce8d0db48f1c28d",
+          "sha1": "40554a226e65b8cf42c69a9eb19824493ad51c1b",
+          "md5": "2dc449bc08d62b95932903f9685c79a5"
+        }
+      ]
+    }
+  ]
+}

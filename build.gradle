@@ -1,35 +1,42 @@
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.2.5'
+    id 'java-library'
+    id 'maven-publish'
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
-group = 'com.example'
-version = '0.0.5-SNAPSHOT'
+group = 'com.sahil'
+version = '1.0.0'
 
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
+
+    withSourcesJar()
 }
 
 repositories {
     mavenCentral()
 }
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.5"
     }
 }
 
 dependencies {
-    // Spring Boot Starters
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
 
-    // Database
-    runtimeOnly 'com.mysql:mysql-connector-j'
+    // Needed by your entities
+    api 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Needed by your auditing annotations
+    api 'org.springframework.data:spring-data-jpa'
+
+    // Needed by @Fetch(FetchMode.SUBSELECT)
+    api 'org.hibernate.orm:hibernate-core'
+
+    api 'jakarta.validation:jakarta.validation-api:3.0.2'
 
     // Flyway
     implementation 'org.flywaydb:flyway-core'
@@ -42,14 +49,26 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
 
-    // Configuration Properties Metadata
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
 
-    // Development Tools
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
 
-    // Testing
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+            groupId = 'com.sahil'
+            artifactId = 'uber-entity-service'
+            version = project.version
+        }
+    }
+
+    repositories {
+        maven {
+            name = "localRepo"
+            url = uri("${rootProject.projectDir}/repo")
+        }
+    }
 }
 
 tasks.named('test') {
